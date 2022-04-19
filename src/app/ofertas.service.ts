@@ -63,7 +63,14 @@ export class OfertasServices {
     public getOfertas2(): Promise<Oferta[]> {
         return new Promise((resolve, rejects) => {
             //algum tipo de processamento, que ao finalizar, chama a função resolve ou rejeitar
-            resolve(this.ofertas)
+            let deu_certo = false
+
+            if(deu_certo){
+                resolve(this.ofertas)
+            }else{
+                rejects({codigo_erro:4004, mensagem_erro:"Servidor indisponivel"})
+            }
+            
         })
     }
 
