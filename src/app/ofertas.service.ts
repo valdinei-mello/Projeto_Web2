@@ -59,19 +59,32 @@ export class OfertasServices {
         return this.ofertas
     }
 
-    
+
     public getOfertas2(): Promise<Oferta[]> {
         return new Promise((resolve, rejects) => {
             //algum tipo de processamento, que ao finalizar, chama a função resolve ou rejeitar
-            let deu_certo = false
+            let deu_certo = true
 
-            if(deu_certo){
-                resolve(this.ofertas)
-            }else{
-                rejects({codigo_erro:4004, mensagem_erro:"Servidor indisponivel...."})
+            if (deu_certo) {
+                setTimeout(() => resolve(this.ofertas), 3000)
+            } else {
+                rejects({ codigo_erro: 4004, mensagem_erro: "Servidor indisponivel...." })
             }
-            
+
         })
+            .then(() => {
+                //fazer alguma coisa
+                console.log("Then do GETOFERTAS2")
+                return this.ofertas;
+
+            })
+            .then(() => {
+                //fazer alguma coisa
+                console.log("Segundo Then do GETOFERTAS2")
+                return this.ofertas;
+
+            })
+
     }
 
 }
