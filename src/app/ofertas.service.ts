@@ -68,7 +68,7 @@ export class OfertasServices {
             if(deu_certo){
                 resolve(this.ofertas)
             }else{
-                rejects({codigo_erro:4004, mensagem_erro:"Servidor indisponivel"})
+                rejects({codigo_erro:4004, mensagem_erro:"Servidor indisponivel...."})
             }
             
         })
